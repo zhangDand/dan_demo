@@ -1,0 +1,12 @@
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# My configurations:
+db.ini
+deploy_key_rsa
+depot.js
+test.js
+test.css
+test.html
