@@ -1131,7 +1131,7 @@ ns('follow',['util'],function(_){
 
 
     function _getFollow(){
-      var url='http://study.163.com/webDev/attention.htm';
+      var url='https://study.163.com/webDev/attention.htm';
       _get(url,'',_checkResp);
     }
     function _checkResp(a){
@@ -1271,7 +1271,7 @@ ns('Hot',['util'],function(_){
             link=l.querySelector('.link'),
             caption=l.querySelector('.caption'),
             num=l.querySelector('.num span>span');
-        var host='http://study.163.com/course/introduction/';
+        var host='https://study.163.com/course/introduction/';
         src.src=d['smallPhotoUrl'];
         link.href=host+d['id']+'.htm';
         link.title=d['name'];
@@ -1413,7 +1413,7 @@ ns('ImgList',['util'],function(_){
         _.$(fcard,'.pub')[0].innerText=info.provider;
         _.$(fcard,'.category')[0].innerText=info.categoryName;
         _.$(fcard,'.des')[0].innerText=info.description;
-         var host='http://study.163.com/course/introduction/';
+         var host='https://study.163.com/course/introduction/';
         _.$(fcard,'a')[0].href=host+info.id+'.htm';
         _.$(fcard,'a')[1].href=host+info.id+'.htm';
         //读取并写入位置
@@ -1460,7 +1460,7 @@ ns('ImgList',['util'],function(_){
 
     _.extend(this,opt);
 
-    this.url=this.url || 'http://study.163.com/webDev/couresByCategory.htm';
+    this.url=this.url || 'https://study.163.com/webDev/couresByCategory.htm';
     this.pageNo=this.pageNo||1;
     this.psize=this.psize||20;
     this.type=this.type||10;
@@ -1511,7 +1511,7 @@ ns('ImgList',['util'],function(_){
         _.$(card,'.count')[0].innerText=info.learnerCount;
         _.$(card,'.price')[0].innerText=(info.price==0?'免费':'￥'+info.price);
 
-        var host='http://study.163.com/course/introduction/';
+        var host='https://study.163.com/course/introduction/';
         _.$(card,'.link')[0].href=host+info.id+'.htm';
         _.$(card,'.link')[1].href=host+info.id+'.htm';
 
