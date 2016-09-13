@@ -6,7 +6,7 @@ title: 我的blog
 <p>最新文章</p>
 <ul>
 	{% for post in site.posts %}
-		<li>{{ post.date | date_to_string }}<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}第一篇文章</a></li>
+		<li>{{ post.date | date_to_string }}<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
 	{% endfor %}
 </ul>
 <p><a href="{{ site.baseurl }}/page1/net-page.html">网易教育产品部</a></p>
