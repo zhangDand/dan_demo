@@ -38,9 +38,13 @@ function clickCursor(cursor,index){
 }
 
   for (var i = 0; i < cursors.length; i++) {
-    cursors[i].addEventListener('click',function(){
-    slider.nav(index);
-  })}
+    (function(i){
+      cursors[i].addEventListener('click',function(){
+      slider.nav(i);
+    })
+    })(i)
+    
+  }
 
 // cursors.forEach(function(cursor,index){
 //   cursor.addEventListener('click',function(){
