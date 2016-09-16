@@ -818,17 +818,25 @@ ns('Slider',['util'],function(_){
           a.appendChild(img);
           a.target='_blank';
 
-
+          function _click(event){
+            event.preventDefault();
+          };
           a.addEventListener('mousemove',function(ev){
             if(!this._dragInfo.start)return;
-            console.log('a')
             this.ifdrag=111;
             return false;
-          }.bind(this),true);
+          }.bind(this));
          a.addEventListener('mouseup',function(ev){
           console.log(this.ifdrag);
-          if(this.ifdrag){ev.preventDefault();}
-         });
+          if(this.ifdrag){
+            ev.currentTarget.addEventListener('click',_click);
+            console.log('addSuc')
+          }else{
+            ev.currentTarget.removeEventListener('click',_click);
+            console.log('removSuc');
+          }
+          this.ifdrag=0;
+         }.bind(this));
 
           slides[index].appendChild(a);
 
@@ -885,7 +893,6 @@ ns('Slider',['util'],function(_){
 
       this.slider.style.transform='translateX(' + (-(this.offsetWidth*this.offsetAll-ev.pageX+start.x)) + 'px) translateZ(0)';
       //拖动flag
-      this.ifdrag=1;
     },
 
     _dragend:function(ev){
@@ -1404,6 +1411,7 @@ ns('ImgList',['util'],function(_){
         var target=event.currentTarget;
         var info=target.info;
         var fcard=this.card;
+        var description=this._formatDes(info.description)
 
 
         //数据插入
@@ -1412,7 +1420,7 @@ ns('ImgList',['util'],function(_){
         _.$(fcard,'.num .count')[0].innerText=info.learnerCount;
         _.$(fcard,'.pub')[0].innerText=info.provider;
         _.$(fcard,'.category')[0].innerText=info.categoryName;
-        _.$(fcard,'.des')[0].innerText=info.description;
+        _.$(fcard,'.des')[0].innerText=description;
          var host='https://study.163.com/course/introduction/';
         _.$(fcard,'a')[0].href=host+info.id+'.htm';
         _.$(fcard,'a')[1].href=host+info.id+'.htm';
@@ -1435,7 +1443,15 @@ ns('ImgList',['util'],function(_){
 
         fcard.style.display='none';
         // target.style.opacity=1;
-      }
+      },
+      _formatDes:function(str){
+        if(str.length<=140){
+          return str;
+        }else{
+          str=str.substr(0,140)+'...';
+          return str;
+        }
+      },
       })
  var floatCard;
 
