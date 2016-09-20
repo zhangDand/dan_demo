@@ -1,0 +1,30 @@
+body{
+	padding-top:15px;
+	background-color: #eee;
+}
+.tech .panel-body{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.sidebar .des{
+	margin-bottom: 50px;
+}
+.sidebar {
+	padding-top: 30px;
+}
+.imgcontainer{
+	width: 100px;
+	height:100px;
+	border-radius: 50%;
+	background: url("../imgs/head.jpg") ;
+	margin:auto;
+}
+.imgcontainer img:hover{
+	opacity: 0;
+	transition: opacity .5s
+}
+
+
+.content{
+	padding: 40px;
+}

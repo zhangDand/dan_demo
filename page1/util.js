@@ -716,7 +716,6 @@ ns('Slider',['util'],function(_){
     }catch(err){
       this.slides=[].concat.apply([],this.slider.querySelectorAll('.slide'));
     }
-    console.log(this.slides)
     //拖曳相关
     this.offsetWidth=this.container.offsetWidth;
     this.breakPoint=this.offsetWidth/4;
@@ -827,13 +826,10 @@ ns('Slider',['util'],function(_){
             return false;
           }.bind(this));
          a.addEventListener('mouseup',function(ev){
-          console.log(this.ifdrag);
           if(this.ifdrag){
             ev.currentTarget.addEventListener('click',_click);
-            console.log('addSuc')
           }else{
             ev.currentTarget.removeEventListener('click',_click);
-            console.log('removSuc');
           }
           this.ifdrag=0;
          }.bind(this));
@@ -1042,8 +1038,7 @@ ns('Login',['util'],function(_){
         userName:_.md5(acnt),
         password:_.md5(pswd)
       };
-      // console.log('data='+data+'pswd='+pswd+'acnt='+acnt);
-      console.log(data);
+      
       if(pswd.length<6 || pswd.length>18){
         emsg='密码长度必须在6-18位之间';
       }else if(!/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z\.]{6,16}$/.test(pswd)){
@@ -1439,7 +1434,6 @@ ns('ImgList',['util'],function(_){
       mouseout:function(){
         var target=this.target;
         var fcard=this.card;
-        console.log('out ------')
 
         fcard.style.display='none';
         // target.style.opacity=1;
